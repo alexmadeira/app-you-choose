@@ -34,6 +34,6 @@ body {
   text-rendering: optimizeLegibility !important;
   background: #fff;
   max-width: 100vw;
-  font-family: 'Roboto', sans-serif;
+
 }
 `;

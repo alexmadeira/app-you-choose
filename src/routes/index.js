@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, useLocation } from 'react-router-dom';
 
 import { AnimatePresence } from 'framer-motion';
 
@@ -7,11 +7,16 @@ import Home from '~/pages/Home';
 import Information from '~/pages/Information';
 
 export default function Routes() {
+  const location = useLocation();
   return (
     <AnimatePresence exitBeforeEnter>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/information" component={Information} />
+      <Switch location={location} key={location.key}>
+        <Route path="/information/:slug">
+          <Information />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
       </Switch>
     </AnimatePresence>
   );
