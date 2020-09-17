@@ -49,5 +49,14 @@ export const Container = styled(motion.div)`
     width: 100%;
     position: absolute;
     z-index: 2;
+    align-items: center;
+    justify-content: center;
   }
+`;
+
+export const WhoIs = styled(motion.img)`
+  filter: contrast(0);
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 `;
