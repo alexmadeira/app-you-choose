@@ -11,6 +11,9 @@ export default createGlobalStyle`
 *:focus{
   outline:0;
 }
+html{
+  font-size: 62.5%;
+}
 html,
 body,
 #root {
@@ -20,8 +23,8 @@ body,
   justify-content:space-between;
   flex:1;
   z-index: 1;
-
 }
+
 body, input, button{
   font-size: 16px;
 }
@@ -31,6 +34,6 @@ body {
   text-rendering: optimizeLegibility !important;
   background: #fff;
   max-width: 100vw;
+  font-family: 'Roboto', sans-serif;
 }
-
 `;

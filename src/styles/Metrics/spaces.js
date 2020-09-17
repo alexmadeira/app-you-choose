@@ -1,5 +1,5 @@
 const Spaces = {
-  BasePadding: '30px',
+  BasePadding: '15px',
   BaseMargin: '15px',
 };
 

@@ -24,6 +24,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "eslint-plugin-import-helpers": "^1.0.2",
+    "framer-motion": "^2.6.13",
     "immer": "^6.0.3",
     "lint-staged": "^9.5.0",
     "prop-types": "^15.7.2",
