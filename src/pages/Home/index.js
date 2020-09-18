@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+import iconImg from '~/assets/imgs/favicon-16x16.png';
 import PokeBall from '~/components/PokeBall';
 import { useFatch } from '~/hooks/useFatch';
 
@@ -35,6 +36,9 @@ export default function Home() {
 
   useEffect(() => {
     document.title = 'Choose your Pokémon';
+    document.title = 'Choose your Pokémon';
+    const icon = document.getElementById('icon');
+    icon.href = iconImg;
   }, []);
 
   return (

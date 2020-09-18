@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
+import { BsArrowLeft } from 'react-icons/bs';
 import { Link, useParams } from 'react-router-dom';
 
+import iconImg from '~/assets/imgs/favicon-16x16.png';
 import { useFatch } from '~/hooks/useFatch';
 
 import {
@@ -50,6 +52,11 @@ function Information() {
     document.title = data
       ? data.name.charAt(0).toUpperCase() + data.name.slice(1)
       : 'Carregando...';
+
+    const icon = document.getElementById('icon');
+    icon.href = data
+      ? data.sprites.other['official-artwork'].front_default
+      : iconImg;
   }, [data]);
 
   if (!data) {
@@ -57,7 +64,11 @@ function Information() {
   }
   return (
     <Container exit={{ opacity: 0 }} initial="initial" animate="animate">
-      <ImageBox initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <ImageBox
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className={data.types[0].type.name}
+      >
         <Image
           initial={{ x: 200, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -69,7 +80,9 @@ function Information() {
       <StatsData>
         <Details variants={stagger}>
           <Back variants={fadeInUp}>
-            <Link to="/">Voltar</Link>
+            <Link to="/">
+              <BsArrowLeft /> Voltar
+            </Link>
           </Back>
           <Name variants={fadeInUp}>
             <span>#{`00${data.id}`.slice(-3)}</span> {data.name}
@@ -90,9 +103,12 @@ function Information() {
           </Detail>
 
           {data.stats.map(({ stat, base_stat }) => (
-            <Stat key={stat.name}>
+            <Stat key={stat.name} variants={fadeInUp}>
               <strong>{stat.name}</strong>
-              <StatBar stat={base_stat <= 100 ? base_stat : 100} />
+              <StatBar
+                className={data.types[0].type.name}
+                stat={base_stat <= 100 ? base_stat : 100}
+              />
             </Stat>
           ))}
         </Details>

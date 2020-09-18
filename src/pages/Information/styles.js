@@ -1,9 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { motion } from 'framer-motion';
 import { transparentize } from 'polished';
 
 import { Colors, Spaces } from '~/styles/Metrics';
+
+const progressAnimate = keyframes`
+  from {
+      width: 0%;
+  }
+`;
 
 export const Container = styled(motion.div)`
   height: 100vh;
@@ -19,6 +25,42 @@ export const ImageBox = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-size: 400% 400%;
+  animation: background 50s ease-in-out infinite;
+
+  @keyframes background {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 0% -135%;
+    }
+  }
+
+  &.grass {
+    background-image: linear-gradient(
+      0deg,
+      #9be15d 0%,
+      #00e3ae 50%,
+      #9be15d 100%
+    );
+  }
+  &.fire {
+    background-image: linear-gradient(
+      0deg,
+      #f6d365 0%,
+      #fda085 50%,
+      #f6d365 100%
+    );
+  }
+  &.water {
+    background-image: linear-gradient(
+      0deg,
+      #74ebd5 0%,
+      #9face6 50%,
+      #74ebd5 100%
+    );
+  }
 `;
 
 export const Image = styled(motion.img)`
@@ -45,6 +87,15 @@ export const Details = styled(motion.div)`
 
 export const Back = styled(motion.div)`
   width: 100%;
+  a {
+    display: flex;
+    align-items: center;
+    color: ${Colors.Black};
+    font-family: 'Podkova', serif;
+    svg {
+      margin-right: ${Spaces.BaseMargin};
+    }
+  }
 `;
 
 export const Name = styled(motion.h1)`
@@ -97,6 +148,7 @@ export const Stat = styled(motion.div)`
     font-family: 'Podkova', serif;
     font-size: 2.5rem;
     font-weight: bold;
+    text-transform: uppercase;
     margin-right: ${Spaces.BaseMargin};
     margin-bottom: ${Spaces.BaseMargin};
   }
@@ -116,5 +168,21 @@ export const StatBar = styled.span`
     top: 0;
     height: 100%;
     width: ${props => props.stat}%;
+    animation: ${progressAnimate} 2s ease-in-out;
+  }
+  &.grass {
+    &:after {
+      background-color: #9bcc50;
+    }
+  }
+  &.fire {
+    &:after {
+      background-color: #fd7d24;
+    }
+  }
+  &.water {
+    &:after {
+      background-color: #00c6fb;
+    }
   }
 `;
