@@ -35,8 +35,7 @@ export default function Home() {
   const startPokemons = pokemons.filter((_, index) => statList.includes(index));
 
   useEffect(() => {
-    document.title = 'Choose your Pokémon';
-    document.title = 'Choose your Pokémon';
+    document.title = 'Choose Your Pokémon';
     const icon = document.getElementById('icon');
     icon.href = iconImg;
   }, []);
