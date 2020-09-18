@@ -26,7 +26,7 @@ export const Image = styled(motion.img)`
   width: 475px;
 `;
 
-export const StartsData = styled.div`
+export const StatsData = styled.div`
   height: 100vh;
   width: 50vw;
   background: ${Colors.White};
@@ -35,6 +35,16 @@ export const StartsData = styled.div`
   justify-content: center;
   align-items: center;
   padding: calc(${Spaces.BaseMargin}*5);
+`;
+
+export const Details = styled(motion.div)`
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+`;
+
+export const Back = styled(motion.div)`
+  width: 100%;
 `;
 
 export const Name = styled(motion.h1)`
@@ -50,17 +60,13 @@ export const Name = styled(motion.h1)`
   }
 `;
 
-export const Details = styled(motion.div)`
-  display: grid;
-  width: 100%;
-  grid-gap: ${Spaces.BaseMargin}*2;
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-columns: repeat(2, 1fr);
-`;
-
 export const Detail = styled(motion.div)`
   display: flex;
   flex-direction: column;
+  flex: 1;
+  min-width: 320px;
+  width: 100%;
+  margin-bottom: ${Spaces.BaseMargin};
   strong {
     font-family: 'Podkova', serif;
     font-size: 2.5rem;
@@ -73,5 +79,42 @@ export const Detail = styled(motion.div)`
     margin-top: calc(${Spaces.BaseMargin} / 2);
     padding-left: ${Spaces.BasePadding};
     text-transform: capitalize;
+  }
+`;
+
+export const Stat = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: calc(${Spaces.BaseMargin} * 2);
+  margin-bottom: ${Spaces.BaseMargin};
+  align-items: flex-start;
+  justify-content: center;
+  & + div {
+    margin-top: 0;
+  }
+  strong {
+    font-family: 'Podkova', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-right: ${Spaces.BaseMargin};
+    margin-bottom: ${Spaces.BaseMargin};
+  }
+`;
+
+export const StatBar = styled.span`
+  width: 100%;
+  height: 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  position: relative;
+  &::after {
+    content: '';
+    background-color: #069;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: ${props => props.stat}%;
   }
 `;

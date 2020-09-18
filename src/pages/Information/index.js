@@ -5,12 +5,15 @@ import { useFatch } from '~/hooks/useFatch';
 
 import {
   Container,
+  Back,
   ImageBox,
   Image,
-  StartsData,
+  StatsData,
   Name,
   Details,
   Detail,
+  Stat,
+  StatBar,
 } from './styles';
 
 const easing = [0.6, -0.05, 0.01, 0.99];
@@ -63,12 +66,14 @@ function Information() {
           alt={data.name}
         />
       </ImageBox>
-      <StartsData variants={stagger}>
-        <Link to="/">Voltar</Link>
-        <Name variants={fadeInUp}>
-          <span>#{`00${data.id}`.slice(-3)}</span> {data.name}
-        </Name>
+      <StatsData>
         <Details variants={stagger}>
+          <Back variants={fadeInUp}>
+            <Link to="/">Voltar</Link>
+          </Back>
+          <Name variants={fadeInUp}>
+            <span>#{`00${data.id}`.slice(-3)}</span> {data.name}
+          </Name>
           <Detail variants={fadeInUp}>
             <strong>Height</strong>
             <p>{data.height / 10} M</p>
@@ -83,8 +88,15 @@ function Information() {
               <p key={ability.name}>{ability.name}</p>
             ))}
           </Detail>
+
+          {data.stats.map(({ stat, base_stat }) => (
+            <Stat key={stat.name}>
+              <strong>{stat.name}</strong>
+              <StatBar stat={base_stat <= 100 ? base_stat : 100} />
+            </Stat>
+          ))}
         </Details>
-      </StartsData>
+      </StatsData>
     </Container>
   );
 }

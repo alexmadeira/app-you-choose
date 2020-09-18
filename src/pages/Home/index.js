@@ -5,6 +5,8 @@ import { useFatch } from '~/hooks/useFatch';
 
 import { Container, Table, Title } from './styles';
 
+const statList = [0, 3, 6];
+
 const easing = [0.6, -0.5, 0.01, 0.99];
 
 const fadeInUp = {
@@ -25,7 +27,7 @@ const stagger = {
     },
   },
 };
-const statList = [0, 3, 6];
+
 export default function Home() {
   const { data } = useFatch('pokemon');
   const pokemons = data ? data.results : [];
