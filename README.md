@@ -1,6 +1,6 @@
 # React Init
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5d26bc2c-5123-45a8-9712-e520c9cf1e15/deploy-status)]()
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b3343477-ed0d-4204-a514-b3af36f10099/deploy-status)](https://app.netlify.com/sites/you-choose-pokemon/deploys)
 
 ![License MIT](https://img.shields.io/badge/license-MIT-green)
 
@@ -12,11 +12,9 @@
 
 [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)]()
 
-[APRESENTAÇÃO].
-
 ## Preview
 
-[![PREVIEW IMAGE]()]()
+[![Choose Your Pokémon - Alex Madeira](https://you-choose.alexmadeira.com.br//preview.png)](http://you-choose.alexmadeira.com.br/)
 
 ## Começando
 
